@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import './App.css';
+import NavBar from "./components/navbar";
+import SearchBar from './components/searchbar';
 
 class App extends Component {
   constructor(props){
@@ -9,7 +10,7 @@ class App extends Component {
       text: ''
     }
   }
-  
+  //This function updates the state of this component. This only stores the variable. Have not implemented search route.
   componentDidMount(){
     fetch('/api/hello')
     .then(response => response.json())
@@ -22,6 +23,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar/>
+        <SearchBar/> 
         <h1>{this.state.text} from Backend</h1>
       </div>
     );
