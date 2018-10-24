@@ -7,11 +7,10 @@ class SearchBar extends Component {
     items: null
   };
   search() {
-    fetch("api/" + this.state.query)
+    fetch(`${process.env.API_URL || ''}/api/${this.state.query}`)
       .then(response => response.json())
       .then(json => {
-        let items = json;
-        this.setState({ items: items });
+        this.setState({ items: json });
         //console.log(this.state.items);
       });
   }
