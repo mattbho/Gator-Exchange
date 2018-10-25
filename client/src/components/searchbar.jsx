@@ -9,7 +9,7 @@ class SearchBar extends Component {
   search() {
     fetch(
       `${process.env.NODE_ENV === 'development' ? '' : 'https://csc648-11.herokuapp.com'}/api/${this.state.query}`,
-      { mode: 'cors' }
+      { mode: 'no-cors' }
     )
       .then(response => response.json())
       .then(json => {
