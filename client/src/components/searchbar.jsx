@@ -6,11 +6,9 @@ class SearchBar extends Component {
     query: "",
     items: null
   };
+
   search() {
-    fetch(
-      `${process.env.NODE_ENV === 'development' ? '' : 'https://csc648-11.herokuapp.com'}/api/${this.state.query}`,
-      { mode: 'no-cors' }
-    )
+    fetch("api/" + this.state.query)
       .then(response => response.json())
       .then(json => {
         let items = json;
