@@ -3,9 +3,17 @@ class NavBar extends Component {
   state = {  }
   render() { 
     return ( 
-      <nav className="navbar navbar-light bg-light">
-        <a className="Logo" href = '/'>Navbar</a>
-      </nav>
+      <nav>
+      <ul className = "NavBar">
+                    <li><a className = "Home" href = "Home"> Gator Exchange</a> </li>
+                    <li><a className = "Categories" href = "Categories"> Categories</a></li>
+                    
+                    <li><a className = "About" href = "About"> About</a></li>
+                    <li><a className = "Profile" href = "Profile"> Profile</a></li>
+                    <li><a className = "Sell" href = "Sell"> Sell</a></li>
+                    
+                </ul>
+                </nav>
     );
   }
 }
