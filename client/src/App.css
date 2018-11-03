@@ -1,6 +1,15 @@
 .App {
   text-align: center;
 }
+/* ======== FRONT PAGE ======== */
+.Welcome {
+  text-align: center;
+}
+
+.Search {
+  width: 100%;
+}
+
 
 /* ======== NAV BAR ======== */
 .NavBar {
@@ -32,4 +41,11 @@ li a.Home, li a.Categories, li a.About, li a.Profile, li a.Sell {
 
 li a.Home:hover, li a.Categories:hover, li a.About:hover, li a.Profile:hover, li a.Sell:hover{
 background-color: white;
+}
+
+/* ======== ERROR PAGE ======== */
+.Error{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
 }
