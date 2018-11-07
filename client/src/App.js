@@ -24,7 +24,6 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/About" component={About}/>
         <Route component={Error}/>
-
         </Switch>
         </div>
         
@@ -35,21 +34,6 @@ class App extends Component {
 
 
 
-
-
-
-
-
-
-
-      /*
-      <div className="App">
-        <NavBar/>
-        <h1>Gator Exchange</h1>
-        <p>Current Available Categories: Books, Clothes, Miscellaneous</p>
-        <SearchBar/> 
-      </div>
-      */
     );
   }
 }
