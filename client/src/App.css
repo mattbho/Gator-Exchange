@@ -12,11 +12,15 @@
 }
 
 
-
+/* ABOUT */
+.AboutUs {
+  text-align: center;
+}
 
 
 /* ======== NAV BAR ======== */
 .NavBar {
+  
   text-align: center;
   font-size: 15px;
   margin-top: 0;
