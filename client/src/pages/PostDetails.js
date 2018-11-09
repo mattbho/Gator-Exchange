@@ -3,10 +3,11 @@ import Post from './components/posts';
 
 export default class PostDetails extends React.Component{
     state = {
-        query: "",
+        query: "Books",
         items: null
       };
       search() {
+        
         fetch(`${process.env.API_URL || ''}/api/${this.state.query}`)
           .then(response => response.json())
           .then(json => {
@@ -15,7 +16,8 @@ export default class PostDetails extends React.Component{
       }
 
     render(){
-        let items = "Books"
+        let items = this.state.items;
+        
         this.search();
         return(
             <div>
