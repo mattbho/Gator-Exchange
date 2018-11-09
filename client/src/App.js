@@ -12,6 +12,7 @@ import SearchBar from './components/searchbar';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Error from "./pages/Error";
+import PostDetails from "./pages/PostDetails";
 
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
         <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/About" component={About}/>
+        <Route path="/PostDetails" component={PostDetails}/>
         <Route component={Error}/>
         </Switch>
         </div>

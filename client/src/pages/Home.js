@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 export default class Home extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class Home extends React.Component {
         <div className="Header">Recent Listings</div>
 
         <recent className="Recent">
+          <a href = "PostDetails">
           <div className="Column">
             <img
               className="postPhoto"
@@ -24,6 +26,7 @@ export default class Home extends React.Component {
             <h2>$35</h2>
             <p>Shakespear Book</p>
           </div>
+          </a>
 
           <div className="Column">
             <img
