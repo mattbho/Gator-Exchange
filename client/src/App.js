@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import './App.css';
+import './styling/about.css';
+import './styling/navbar.css';
+import './styling/errorpage.css';
+import './styling/homepage.css';
+
 import NavBar from "./components/navbar";
 import SearchBar from './components/searchbar';
 
