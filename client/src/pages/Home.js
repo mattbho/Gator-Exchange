@@ -6,7 +6,7 @@ export default class Home extends React.Component {
     items: null
   };
   search() {
-    fetch(`${process.env.API_URL || ""}/allItems`)
+    fetch(`/allItems`)
       .then(response => response.json())
       .then(json => {
         this.setState({ items: json });
