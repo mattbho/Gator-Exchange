@@ -48,6 +48,13 @@ app.get('/api/:item', (req, res)=> {
   })
 })
 
+app.get('/allItems', (req, res) => {
+  Posts.find(function(err,result){
+    if(err) throw err;
+    res.json(result);
+  })
+})
+
 
 //Start server
 app.listen(PORT, process.env.IP, function (){

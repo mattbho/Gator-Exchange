@@ -1,7 +1,21 @@
 import React from "react";
+import Post from './components/posts';
 
 export default class Home extends React.Component {
+  state = {
+    items: null
+  };
+  search() {
+    fetch(`${process.env.API_URL || ''}/allItems`)
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ items: json });
+      });
+  }
+
   render() {
+    let items = this.state.items;
+    this.search();
     return (
       <div className="Welcome">
         <div className="Banner">
@@ -13,95 +27,16 @@ export default class Home extends React.Component {
         <div className="Header">Recent Listings</div>
 
         <recent className="Recent">
-          <a href = "PostDetails">
-          <div className="Column">
-            <img
-              className="postPhoto"
-              src={require("../example/exampleBook.jpg")}
-              width="200"
-              height="250"
-              alt="post"
-            />
-            <h2>$35</h2>
-            <p>Shakespear Book</p>
-          </div>
-          </a>
-
-          <a href = "PostDetails">
-          <div className="Column">
-            <img
-              className="postPhoto"
-              src={require("../example/exampleClothes.jpg")}
-              width="200"
-              height="250"
-              alt="post"
-            />
-            <h2>$5</h2>
-            <p>White Shirt</p>
-          </div>
-          </a>
-
-          <a href = "PostDetails">
-          <div className="Column">
-            <img
-              className="postPhoto"
-              src={require("../example/exampleMisc.jpg")}
-              width="200"
-              height="250"
-              alt="post"
-            />
-            <h2>$65</h2>
-            <p>Office Chair</p>
-          </div>
-          </a>
+        <div>
+            {this.state.items !== null ? (
+                <div>
+                  <Post list = {items}/>
+                </div>
+              ) : (
+                <div/>
+              )}
+        </div>
         </recent>
-
-        <div className="Header">Under $25</div>
-        <under25 className="Recent">
-
-        <a href = "PostDetails">
-          <div className="Column">
-            <img
-              className="postPhoto"
-              src={require("../example/pencil.jpg")}
-              width="200"
-              height="250"
-              alt="post"
-            />
-            <h2>$8</h2>
-            <p>Lead Pencil</p>
-          </div>
-          </a>
-
-          <a href = "PostDetails">
-          <div className="Column">
-            <img
-              className="postPhoto"
-              src={require("../example/notebook.jpg")}
-              width="200"
-              height="250"
-              alt="post"
-            />
-            <h2>$3</h2>
-            <p>Notebook</p>
-          </div>
-          </a>
-
-          <a href = "PostDetails">
-          <div className="Column">
-            <img
-              className="postPhoto"
-              src={require("../example/calculator.jpg")}
-              width="200"
-              height="250"
-              alt="post"
-            />
-            <h2>$20</h2>
-            <p>Calculator </p>
-          </div>
-          </a>
-          
-        </under25>
 
         <div>
           Can't find what you are looking for? Try searching by category.
