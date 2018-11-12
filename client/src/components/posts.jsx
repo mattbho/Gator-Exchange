@@ -9,7 +9,7 @@ class Post extends Component {
           return(
             <div>
             <p key = {k}>{item.title} {"$" + item.price}</p>
-            <img src = {item.image}/>
+            <img src = {item.image} alt = "Posting"/>
             <p>{item.description}</p>
             </div>
           );

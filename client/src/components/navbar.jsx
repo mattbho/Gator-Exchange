@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {DropdownButton, MenuItem } from 'react-bootstrap';
 
 class NavBar extends Component {
   state = {  }
