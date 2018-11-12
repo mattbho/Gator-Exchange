@@ -5,7 +5,7 @@ export default class Home extends React.Component {
   state = {
     items: null
   };
-  search() {
+  componentDidMount() {
     fetch(`/allItems`)
       .then(response => response.json())
       .then(json => {
@@ -15,7 +15,6 @@ export default class Home extends React.Component {
 
   render() {
     let items = this.state.items;
-    this.search();
     return (
       <div className="Welcome">
         <div className="Banner">

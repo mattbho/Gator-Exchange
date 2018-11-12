@@ -22,17 +22,5 @@ class NavBar extends Component {
   }
 }
 
-/*
-<categorydropdown className="categorydropdown">
-          <DropdownButton title="Categories" id="dropdown-size-medium">
-        
-          <MenuItem eventKey = "1">Books</MenuItem>
-          <MenuItem eventKey = "2">Clothes</MenuItem>
-          <MenuItem eventKey = "3">Miscellaneous</MenuItem>
-          
-        </DropdownButton>
-        </categorydropdown>
-
-*/
  
 export default NavBar;
