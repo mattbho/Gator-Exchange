@@ -8,7 +8,7 @@ class Post extends Component {
       <div>
         {item.map((item, k) => {
           return(
-            <div className="Column">
+            <div className="Column" key = {k}>
             <img 
             className="postPhoto"
             src = {item.image}
@@ -24,24 +24,6 @@ class Post extends Component {
       </div>
       </a>
      );
-
-
-    return (
-      <a href = "PostDetails">
-            <div className="Column">
-              <img
-                className="postPhoto"
-                src={item.image}
-                width="200"
-                height="250"
-                alt="post"
-              />
-              <h2>$ {item.price}</h2>
-              <p>{item.title}</p>
-            </div>
-      </a>
-      );
-  
   }
 }
  

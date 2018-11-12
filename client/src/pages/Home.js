@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./components/posts";
 
+
 export default class Home extends React.Component {
   state = {
     items: null
@@ -22,7 +23,6 @@ export default class Home extends React.Component {
           <div>Buy and Sell with students around you!</div>
         </div>
         <br />
-
         <div className="Header">Recent Listings</div>
 
         <div className="Recent">
