@@ -3,7 +3,7 @@ import Post from './components/posts';
 
 export default class PostDetails extends React.Component{
     state = {
-        query: "Books",
+        query: "Clothes",
         items: null
       };
       search() {

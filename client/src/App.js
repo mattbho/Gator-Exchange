@@ -22,6 +22,7 @@ class App extends Component {
 
       <BrowserRouter>
         <div>
+          <div>SFSU-Fulda Software Engineering Project CSC 648-848, Fall 2018.  For Demonstration Only</div>
         <NavBar/>
         <SearchBar/> 
         

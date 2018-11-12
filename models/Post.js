@@ -6,7 +6,8 @@ const postSchema = new mongoose.Schema({
   price: Number,
   sellerId: Number,
   title: String,
-  category: String
+  category: String,
+  itemid: Number
 
 })
 

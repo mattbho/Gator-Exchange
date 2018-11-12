@@ -49,7 +49,6 @@ app.get('/api/:item', (req, res)=> {
 })
 
 
-
 //Start server
 app.listen(PORT, process.env.IP, function (){
   console.log("Server is listening");

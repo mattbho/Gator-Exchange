@@ -8,7 +8,7 @@ export default class Home extends React.Component {
           <div>SFSU College Student?</div>
           <div>Buy and Sell with students around you!</div>
         </div>
-        <br />
+        <br/>
 
         <div className="Header">Recent Listings</div>
 
@@ -27,6 +27,7 @@ export default class Home extends React.Component {
           </div>
           </a>
 
+          <a href = "PostDetails">
           <div className="Column">
             <img
               className="postPhoto"
@@ -38,7 +39,9 @@ export default class Home extends React.Component {
             <h2>$5</h2>
             <p>White Shirt</p>
           </div>
+          </a>
 
+          <a href = "PostDetails">
           <div className="Column">
             <img
               className="postPhoto"
@@ -50,10 +53,13 @@ export default class Home extends React.Component {
             <h2>$65</h2>
             <p>Office Chair</p>
           </div>
+          </a>
         </recent>
 
         <div className="Header">Under $25</div>
         <under25 className="Recent">
+
+        <a href = "PostDetails">
           <div className="Column">
             <img
               className="postPhoto"
@@ -65,7 +71,9 @@ export default class Home extends React.Component {
             <h2>$8</h2>
             <p>Lead Pencil</p>
           </div>
+          </a>
 
+          <a href = "PostDetails">
           <div className="Column">
             <img
               className="postPhoto"
@@ -77,7 +85,9 @@ export default class Home extends React.Component {
             <h2>$3</h2>
             <p>Notebook</p>
           </div>
+          </a>
 
+          <a href = "PostDetails">
           <div className="Column">
             <img
               className="postPhoto"
@@ -89,10 +99,12 @@ export default class Home extends React.Component {
             <h2>$20</h2>
             <p>Calculator </p>
           </div>
+          </a>
+          
         </under25>
 
         <div>
-          Can't find what you are looking for? Try searching by category
+          Can't find what you are looking for? Try searching by category.
         </div>
       </div>
     );
