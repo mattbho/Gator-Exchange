@@ -7,7 +7,7 @@ class SearchBar extends Component {
     items: null
   };
   search() {
-    fetch(`${process.env.API_URL || ''}/api/${this.state.query}`)
+    fetch(`/api/${this.state.query}`)
       .then(response => response.json())
       .then(json => {
         this.setState({ items: json });
