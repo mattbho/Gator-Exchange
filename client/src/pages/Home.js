@@ -1,6 +1,5 @@
 import React from "react";
-import Post from "./components/posts";
-
+import Post from './components/posts';
 
 export default class Home extends React.Component {
   state = {
@@ -22,21 +21,22 @@ export default class Home extends React.Component {
           <div>SFSU College Student?</div>
           <div>Buy and Sell with students around you!</div>
         </div>
-        <br />
+        <br/>
+
         <div className="Header">Recent Listings</div>
-
+        
         <div className="Recent">
-          <div>
+        <div>
             {this.state.items !== null ? (
-              <div>
-                <Post list={items} />
-              </div>
-            ) : (
-              <div />
-            )}
-          </div>
+                <div>
+                  <Post list = {items}/>
+                </div>
+              ) : (
+                <div/>
+              )}
         </div>
-
+        </div>
+        
         <div>
           Can't find what you are looking for? Try searching by category.
         </div>

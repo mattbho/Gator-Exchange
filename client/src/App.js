@@ -6,8 +6,8 @@ import './styling/navbar.css';
 import './styling/errorpage.css';
 import './styling/homepage.css';
 
-import NavBar from "./components/navbar";
-import SearchBar from './components/searchbar';
+import NavBar from "./pages/components/navbar";
+import SearchBar from './pages/components/searchbar';
 
 import Home from "./pages/Home";
 import About from "./pages/About";

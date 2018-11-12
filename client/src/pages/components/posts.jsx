@@ -8,7 +8,7 @@ class Post extends Component {
       <div>
         {item.map((item, k) => {
           return(
-            <div className="Column" key = {k}>
+            <div className="Column">
             <img 
             className="postPhoto"
             src = {item.image}
