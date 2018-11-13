@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Error from "./pages/Error";
 import PostDetails from "./pages/PostDetails";
+import SearchResults from "./pages/components/search-results";
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/About" component={About}/>
         <Route path="/PostDetails" component={PostDetails}/>
+        <Route path="/searchresults" component={SearchResults}/>
         <Route component={Error}/>
         </Switch>
         </div>
