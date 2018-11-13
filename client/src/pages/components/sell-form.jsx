@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-export default class SellForm extends Components {
+export default class SellForm extends Component {
   constructor(props) {
+    super(props);
     this.state = {};
   }
   render() {

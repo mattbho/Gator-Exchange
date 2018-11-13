@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const Posts = require("./models/Post.js");
+const Posts = require("../models/Post.js");
 
 //Port declaration
 const PORT = process.env.PORT || 5000;
