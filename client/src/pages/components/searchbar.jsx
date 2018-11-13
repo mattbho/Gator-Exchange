@@ -1,13 +1,30 @@
 import React, { Component } from "react";
-import Post from './posts';
+import Post from "./posts";
 
 class SearchBar extends Component {
-  state = {
-    query: "",
-    items: null
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      query: "",
+      value: "All",
+      items: null
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
   search() {
-    fetch(`/api/${this.state.query}`)
+    fetch(`/allItems`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        value : this.state.value,
+        query : this.state.query
+      })
+    })
       .then(response => response.json())
       .then(json => {
         this.setState({ items: json });
@@ -15,6 +32,9 @@ class SearchBar extends Component {
       });
   }
 
+  handleChange(event){
+    this.setState({value: event.target.value});
+  }
 
   render() {
     let items = this.state.items;
@@ -22,6 +42,14 @@ class SearchBar extends Component {
       <div className="Search">
         <div className="form-group">
           <div className="input-group">
+            <div className="input-group-prepend">
+              <select value = {this.state.value} onChange = {this.handleChange}>
+                <option defaultValue>All</option>
+                <option value = "Books">Books</option>
+                <option value = "Clothes">Clothes</option>
+                <option value = "Miscellaneous">Miscellaneous</option>
+              </select>
+            </div>
             <input
               type="text"
               className="form-control"
@@ -49,13 +77,12 @@ class SearchBar extends Component {
         </div>
         {this.state.items !== null ? (
           <div>
-            <Post list = {items}/>
+            <Post list={items} />
           </div>
         ) : (
-          <div/>
+          <div />
         )}
       </div>
-      
     );
   }
 }

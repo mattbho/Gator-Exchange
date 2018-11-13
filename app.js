@@ -2,11 +2,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-//const bodyparser = require("body-parser");
+const bodyParser = require("body-parser");
 const Posts = require("./models/Post.js");
 
 //Port declaration
 const PORT = process.env.PORT || 5000;
+
+app.use(bodyParser.json())
+
 
 //Connecting to Database Server
 mongoose.connect("mongodb://csc648team11:648team11@ds052837.mlab.com:52837/gatorexchange", {useNewUrlParser: true});
@@ -49,12 +52,21 @@ app.get('/api/:item', (req, res)=> {
 })
 
 app.get('/allItems', (req, res) => {
+  
   Posts.find(function(err,result){
     if(err) throw err;
     res.json(result);
   })
 })
 
+app.post('/allItems', (req, res) => {
+  
+  console.log(req.body);
+  Posts.find(function(err,result){
+    if(err) throw err;
+    res.json(result);
+  })
+})
 
 //Start server
 app.listen(PORT, process.env.IP, function (){
