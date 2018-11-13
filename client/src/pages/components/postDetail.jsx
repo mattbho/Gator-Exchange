@@ -20,7 +20,7 @@ class PostDetail extends Component {
                 <p>{item.title}</p>
                 <p>{item.description}</p>
                 <p>{item.category}</p>
-                <p>User #{item.sellerId}</p>
+                <p>Seller #{item.sellerId}</p>
               </div>
             );
           })}
