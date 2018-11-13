@@ -23,7 +23,6 @@ export default class PostDetails extends React.Component {
 
   render() {
     const {items} = this.state;
-    // let items = this.state.items;
     return (
       <div>
         {this.state.items !== null ? (
