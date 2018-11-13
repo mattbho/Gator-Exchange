@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Post extends Component {
+class PostDetail extends Component {
 
   render() {
     const item = this.props.list;
@@ -8,8 +8,7 @@ class Post extends Component {
         <div>
           {item.map((item, k) => {
             return (
-              <a href="PostDetails" key = {k}>
-              <div className="Column">
+              <div className="UniqueName">
                 <img
                   className="postPhoto"
                   src={item.image}
@@ -20,8 +19,9 @@ class Post extends Component {
                 <h2>$ {item.price}</h2>
                 <p>{item.title}</p>
                 <p>{item.description}</p>
+                <p>{item.category}</p>
+                <p>User #{item.sellerId}</p>
               </div>
-              </a>
             );
           })}
         </div>
@@ -30,4 +30,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default PostDetail;

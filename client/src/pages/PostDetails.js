@@ -1,5 +1,5 @@
 import React from "react";
-import Post from "./components/posts";
+import PostDetail from "./components/postDetail";
 
 export default class PostDetails extends React.Component {
   state = {
@@ -28,7 +28,7 @@ export default class PostDetails extends React.Component {
       <div>
         {this.state.items !== null ? (
           <div>
-            <Post list={items} />
+            <PostDetail list={items} />
           </div>
         ) : (
           <div />
