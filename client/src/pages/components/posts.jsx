@@ -4,7 +4,7 @@ class Post extends Component {
 
   render() {
     const item = this.props.list;
-    var itemId = "";
+    let itemId = "";
     return (
         <div>
           {item.map((item, k) => {
