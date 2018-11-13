@@ -1,2 +1,2 @@
-/api/* https://csc648-11.herokuapp.com/:splat  200
+/api/* https://csc648-11.herokuapp.com/api/:splat  200
 /*  /index.html  200
