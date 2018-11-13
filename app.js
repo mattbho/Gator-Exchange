@@ -50,9 +50,6 @@ app.get('/api/:item', (req, res)=> {
   })
 })
 
-app.get('/getItem/:itemId', (req,res) => {
-  res.json(req.params.itemId);
-})
 
 app.get('/allItems', (req, res) => {
   Posts.find(function(err,result){
