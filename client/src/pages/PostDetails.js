@@ -3,9 +3,10 @@ import Post from "./components/posts";
 
 export default class PostDetails extends React.Component {
   state = {
-    query: "Clothes",
+    query: this.getVariable(),
     items: null
   };
+  
   componentDidMount() {
     fetch(`/api/${this.state.query}`)
       .then(response => response.json())
@@ -14,9 +15,15 @@ export default class PostDetails extends React.Component {
       });
   }
 
+  getVariable() {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    return url.searchParams.get("itemId");
+  }
+
   render() {
     let items = this.state.items;
-
+    console.log(this.getVariable());
     return (
       <div>
         {this.state.items !== null ? (

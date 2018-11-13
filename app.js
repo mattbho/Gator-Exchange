@@ -44,11 +44,14 @@ app.get('/api/:item', (req, res)=> {
   //Eventually route to search through mongodb using db.fine(). 1/7 Restful route
   //SHOW
   let item = req.params.item;
-  Posts.find({ $or: [ {"category": {$regex: ".*" + item + ".*", $options: 'i'} },
-  {"title": {$regex: ".*" + item + ".*", $options: 'i'}} ]},function(err,result){
+  Posts.find({"_id": item},function(err,result){
     if(err) throw err;
     res.json(result);
   })
+})
+
+app.get('/getItem/:itemId', (req,res) => {
+  res.json(req.params.itemId);
 })
 
 app.get('/allItems', (req, res) => {

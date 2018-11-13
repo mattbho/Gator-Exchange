@@ -26,10 +26,13 @@ export default class Home extends React.Component {
         <div className="Header">Recent Listings</div>
         
         <div className="Recent">
+        
         <div>
             {this.state.items !== null ? (
                 <div>
                   <Post list = {items}/>
+                <script type='text/javascript'>
+                </script>
                 </div>
               ) : (
                 <div/>
