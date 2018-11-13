@@ -52,7 +52,6 @@ app.get('/api/:item', (req, res)=> {
 })
 
 app.get('/allItems', (req, res) => {
-  
   Posts.find(function(err,result){
     if(err) throw err;
     res.json(result);
@@ -60,12 +59,19 @@ app.get('/allItems', (req, res) => {
 })
 
 app.post('/allItems', (req, res) => {
-  
-  console.log(req.body);
-  Posts.find(function(err,result){
-    if(err) throw err;
-    res.json(result);
-  })
+  let category = req.body.value;
+  let query = req.body.query;
+  if(category !== 'All') {
+    Posts.find({"title": {$regex: ".*" + query + ".*", $options: 'i'}, "category": category}, function(err, result){
+      if(err) throw err;
+      res.json(result);
+    })
+  } else {
+    Posts.find({"title": {$regex: ".*" + query + ".*", $options: 'i'}}, function(err,result){
+      if(err) throw err;
+      res.json(result);
+    })
+  }
 })
 
 //Start server
