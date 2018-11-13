@@ -1,28 +1,27 @@
 import React, { Component } from "react";
-import Post from "./posts";
+import { Redirect } from "react-router-dom";
 
 class SearchBar extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       query: "",
       value: "All",
       items: null
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
-
   search() {
     fetch(`/allItems`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        value : this.state.value,
-        query : this.state.query
+        value: this.state.value,
+        query: this.state.query
       })
     })
       .then(response => response.json())
@@ -32,8 +31,8 @@ class SearchBar extends Component {
       });
   }
 
-  handleChange(event){
-    this.setState({value: event.target.value});
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
   render() {
@@ -43,17 +42,17 @@ class SearchBar extends Component {
         <div className="form-group">
           <div className="input-group">
             <div className="input-group-prepend">
-              <select value = {this.state.value} onChange = {this.handleChange}>
+              <select value={this.state.value} onChange={this.handleChange}>
                 <option defaultValue>All</option>
-                <option value = "Books">Books</option>
-                <option value = "Clothes">Clothes</option>
-                <option value = "Miscellaneous">Miscellaneous</option>
+                <option value="Books">Books</option>
+                <option value="Clothes">Clothes</option>
+                <option value="Miscellaneous">Miscellaneous</option>
               </select>
             </div>
             <input
               type="text"
               className="form-control"
-              placeholder="Search for your item by Categories"
+              placeholder="Search for your item!"
               onChange={event => {
                 this.setState({ query: event.target.value });
               }}
@@ -75,10 +74,12 @@ class SearchBar extends Component {
             </div>
           </div>
         </div>
+
         {this.state.items !== null ? (
-          <div>
-            <Post list={items} />
-          </div>
+          <Redirect to ={{
+            pathname: '/searchresults',
+            state: { items }
+          }}/>
         ) : (
           <div />
         )}
