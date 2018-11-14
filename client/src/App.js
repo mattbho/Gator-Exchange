@@ -22,8 +22,11 @@ import Register from "./pages/components/register"
 class App extends Component {
   render() {
     return (
+      
       <BrowserRouter>
         <div>
+          <p>SFSU-Fulda Software Engineering Project CSC648-848, Fall 2018. For Demonstration Only</p>
+          <h1>Team 11</h1>
           <NavBar />
           <SearchBar />
 
