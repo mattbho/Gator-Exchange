@@ -10,6 +10,7 @@ import "./styling/register.css";
 import "./styling/login.css";
 
 
+
 import NavBar from "./pages/components/navbar";
 import SearchBar from "./pages/components/searchbar";
 
