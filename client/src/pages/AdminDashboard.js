@@ -15,7 +15,7 @@ export default class AdminDashboard extends React.Component {
 
   //admin profile information, username, contact info, etc.
   adminProfile = () => {
-    this.setState({ info: "admin-profile" });
+    this.setState({ info: "admin-profile-information" });
   };
 
   render() {
