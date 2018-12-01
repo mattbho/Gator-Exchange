@@ -6,6 +6,8 @@ import "./styling/navbar.css";
 import "./styling/errorpage.css";
 import "./styling/homepage.css";
 import "./styling/details.css";
+import "./styling/dashboard.css";
+
 
 import NavBar from "./pages/components/navbar";
 import SearchBar from "./pages/components/searchbar";
@@ -13,11 +15,14 @@ import SearchBar from "./pages/components/searchbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Error from "./pages/Error";
+import UserDashboard from "./pages/UserDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import PostDetails from "./pages/PostDetails";
 import SearchResults from "./pages/components/search-results";
 import SellForm from "./pages/components/sell-form";
 import Login from "./pages/components/login";
-import Register from "./pages/components/register"
+import Register from "./pages/components/register";
+
 
 class App extends Component {
   render() {
@@ -38,6 +43,8 @@ class App extends Component {
             <Route path="/Sell" component={SellForm} />
             <Route path="/Login" component={Login} />
             <Route path="/Register" component={Register} />
+            <Route path="/UserDashboard" component={UserDashboard} />
+            <Route path="/AdminDashboard" component={AdminDashboard} />
             <Route component={Error} />
           </Switch>
         </div>
