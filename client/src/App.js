@@ -6,7 +6,13 @@ import "./styling/navbar.css";
 import "./styling/errorpage.css";
 import "./styling/homepage.css";
 import "./styling/details.css";
+
+import "./styling/register.css";
+import "./styling/login.css";
+
+
 import "./styling/dashboard.css";
+
 
 
 import NavBar from "./pages/components/navbar";
