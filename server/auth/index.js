@@ -43,16 +43,18 @@ router.post('/user/logout', (req, res) => {
 
 //Handling sign up
 router.post('/user/signup', (req, res) =>{
-  const {username, password, email} = req.body
+  console.log(req.body);
+  const {username, email, sfsuId} = req.body
   User.findOne({username: username}, (err, user) =>{
     if(user){
       return res.json({error: `Already user with username ${username}`})
     }
     
-    const newUser = new User ({
+    let newUser = new User ({
       username: username,
-      password: password,
-      email: email
+      password: req.body.password,
+      email: email,
+      sfsuId: sfsuId
     })
     newUser.save((err, savedUser) =>{
       if(err) return res.json(err)

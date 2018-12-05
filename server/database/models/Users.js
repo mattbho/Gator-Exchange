@@ -7,25 +7,28 @@ const UserSchema = new mongoose.Schema({
   username:{ type: String, unique: true, required: true},
   password: { type: String, unique: false, required: true},
   email: String,
-  admin: {type: Boolean, default: false}
+  admin: {type: Boolean, default: false},
+  sfsuId: Number
 });
 
 UserSchema.methods = {
   checkPassword: inputPassword =>{
-    return bcrypt.compareSync(inputPassword,this.local.password);
+    return bcrypt.compareSync(inputPassword, this.password);
   },
   hashPassword: plainTextPassword => {
     return bcrypt.hashSync(plainTextPassword, 10);
+    console.log("hash ran");
   }
 }
 //Calls this function before a new user is saved into the database. It checks
 // for empty password field, and it also hashes the password.
-UserSchema.pre('save', next => {
+UserSchema.pre('save', function(next) {
   if(!this.password) {
     console.log("No Password Provided.")
     next();
   } else {
     this.password = this.hashPassword(this.password);
+    next();
   }
 })
 
