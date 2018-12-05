@@ -1,19 +1,67 @@
-import React, { Component } from "react";
+import React from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
+import SearchBar from "./searchbar";
 
-class NavBar extends Component {
-  state = {};
+//Contains Navbar and Searchbar components and Gator Exchange logo
+//CSS done in navbar.css
+
+
+export default class GENavbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
     return (
-      <ul className = "NavBar">
-          <li><a className = "Home" href = "/"> Gator Exchange</a> </li>
-          <li><a className = "About" href = "About"> About</a></li>
-          <li><a className = "Register" href = "/Register"> Register</a></li> 
-          <li><a className = "Login" href = "/Login"> Login</a></li> 
-          <li><a className = "Sell" href = "Sell"> Sell</a></li>         
-               
-        </ul>
+      <div>
+        <Navbar color="white" light expand="md">
+          <NavbarBrand href="/">
+            <img
+              className="gator"
+              src={require("../../aboutme/gator_exchange.jpg")}
+              alt="gator"
+              width="400px"
+              height="140px"
+            />
+          </NavbarBrand>
+
+          <NavbarToggler className="navToggler" onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <SearchBar />
+            <Nav className="navFormat" navbar>
+              <NavItem className="navText">
+                <NavLink href="/sell">Sell</NavLink>
+              </NavItem>
+              <NavItem className="navText">
+                <NavLink href="/login">Login</NavLink>
+              </NavItem>
+              <NavItem className="navText">
+                <NavLink href="/register">Register</NavLink>
+              </NavItem>
+              <NavItem className="navText">
+                <NavLink href="/about">About</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
     );
   }
 }
-
-export default NavBar;

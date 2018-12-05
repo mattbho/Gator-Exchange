@@ -7,15 +7,12 @@ import "./styling/errorpage.css";
 import "./styling/homepage.css";
 import "./styling/details.css";
 
-
 import "./styling/register.css";
 import "./styling/login.css";
 
 import "./styling/dashboard.css";
 
-
-import NavBar from "./pages/components/navbar";
-import SearchBar from "./pages/components/searchbar";
+import GENavBar from "./pages/components/navbar";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -35,11 +32,9 @@ class App extends Component {
         <div>
           <p>
             SFSU-Fulda Software Engineering Project CSC648-848, Fall 2018. For
-            Demonstration Only
+            Demonstration Only - Team 11
           </p>
-          <h1>Team 11</h1>
-          <NavBar />
-          <SearchBar />
+          <GENavBar />
 
           <Switch>
             <Route exact path="/" component={Home} />

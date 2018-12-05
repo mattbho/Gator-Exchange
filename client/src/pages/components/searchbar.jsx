@@ -76,10 +76,12 @@ class SearchBar extends Component {
         </div>
 
         {this.state.items !== null ? (
-          <Redirect to ={{
-            pathname: '/searchresults',
-            state: { items }
-          }}/>
+          <Redirect
+            to={{
+              pathname: "/searchresults",
+              state: { items }
+            }}
+          />
         ) : (
           <div />
         )}
