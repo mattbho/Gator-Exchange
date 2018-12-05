@@ -25,10 +25,10 @@
   .Column { 
     display: inline-block;
     align-items: center;
+    vertical-align: middle;
     width: 33.33%;
     min-width: 350px;
-    height: 400px;
-    max-height: 200;
+    height: 450px;
     border-style: ridge;
     border-color: #ffffff21;
     margin-left: auto;
