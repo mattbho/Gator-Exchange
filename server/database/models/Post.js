@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema({
   sellerId: Number,
   title: String,
   category: String,
-  status: Boolean
+  status: {type: Boolean, default: false}
 
 })
 
