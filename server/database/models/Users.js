@@ -1,6 +1,6 @@
 // User Schema
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 
 const UserSchema = new mongoose.Schema({
@@ -10,10 +10,10 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.methods = {
   checkPassword: inputPassword =>{
-    return bcrypt.compareSync(inputPassword,this.local.password);
+    return bcryptjs.compareSync(inputPassword,this.local.password);
   },
   hashPassword: plainTextPassword => {
-    return bcrypt.hashSync(plainTextPassword, 10);
+    return bcryptjs.hashSync(plainTextPassword, 10);
   }
 }
 //Calls this function before a new user is saved into the database. It checks

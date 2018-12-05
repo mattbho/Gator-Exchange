@@ -1,35 +1,26 @@
-/* ======== NAV BAR ======== */
-.NavBar {
-  
-    text-align: center;
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #a366ff;
-  }
-  
-  .Home, .Categories{
-    float: left;
-  }
-  
-  .Sell, .Login, .Register, .About{
-    float: right;
-  }
-  
-  li a.Home, li a.Categories, li a.About, li a.Profile, li a.Sell, li a.Login, li a.Register {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
-  li a.Home:hover, li a.Categories:hover, li a.About:hover, li a.Profile:hover, li a.Sell:hover, li a.Login:hover, li a.Register:hover{
-  background-color: white;
-  }
-  
-  
+.gator{
+  position: relative;
+  bottom: 50px;
+}
+
+.navFormat{
+  position: relative;
+  bottom: 0px;
+  margin-left: auto;
+}
+
+
+
+.navText{
+  font-size: 20px;
+  text-align: center;
+}
+
+.navToggler{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.Search{
+  width: 100%;
+}

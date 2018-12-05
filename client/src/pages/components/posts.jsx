@@ -16,12 +16,16 @@ class Post extends Component {
                   className="postPhoto"
                   src={item.image}
                   width="200"
-                  heigh="250"
+                  height="200"
                   alt="post"
                 />
                 <h2>$ {item.price}</h2>
                 <p>{item.title}</p>
                 <p>{item.description}</p>
+
+                <div className="buyButton">
+                <a href="#" class="btn btn-primary">Buy</a>
+                </div>
                 </a>
               </div>
             );

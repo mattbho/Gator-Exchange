@@ -1,5 +1,5 @@
 import React from "react";
-import Post from './components/posts';
+import Post from "./components/posts";
 
 export default class Home extends React.Component {
   state = {
@@ -15,32 +15,29 @@ export default class Home extends React.Component {
 
   render() {
     let items = this.state.items;
+
     return (
       <div className="Welcome">
         <div className="Banner">
           <div>SFSU College Student?</div>
           <div>Buy and Sell with students around you!</div>
         </div>
-        <br/>
+        <br />
 
         <div className="Header">Recent Listings</div>
-        
-        <div className="Recent">
-        
-        <div>
-            {this.state.items !== null ? (
-                <div>
-                  <Post list = {items}/>
-                <script type='text/javascript'>
-                </script>
-                </div>
-              ) : (
-                <div/>
-              )}
+
+        <div class="Recent">
+          {this.state.items !== null ? (
+            <div>
+              <Post list={items} />
+              <script type="text/javascript" />
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
-        </div>
-        
-        <div>
+
+        <div className="footer">
           Can't find what you are looking for? Try searching by category.
         </div>
       </div>
