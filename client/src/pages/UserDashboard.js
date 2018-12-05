@@ -9,8 +9,8 @@ export default class UserDashboard extends React.Component {
   }
 
   //State for previously bought items
-  messages = () => {
-    this.setState({ info: "messages" });
+  previouslyBought = () => {
+    this.setState({ info: "previously-bought" });
   };
 
   //State for current active selling post from the user
@@ -20,7 +20,7 @@ export default class UserDashboard extends React.Component {
 
   //State for user profile account information, username, contact info, etc.
   userProfile = () => {
-    this.setState({ info: "user-profile-information" });
+    this.setState({ info: "user-profile" });
   };
 
 
@@ -38,9 +38,9 @@ export default class UserDashboard extends React.Component {
           <button
             type="button"
             class="btn btn-secondary"
-            onClick={this.messages}
+            onClick={this.previouslyBought}
           >
-            Messages
+            Previously Bought
           </button>
 
           <button

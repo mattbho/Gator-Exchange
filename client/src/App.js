@@ -6,6 +6,11 @@ import "./styling/navbar.css";
 import "./styling/errorpage.css";
 import "./styling/homepage.css";
 import "./styling/details.css";
+
+
+import "./styling/register.css";
+import "./styling/login.css";
+
 import "./styling/dashboard.css";
 
 
@@ -23,14 +28,15 @@ import SellForm from "./pages/components/sell-form";
 import Login from "./pages/components/login";
 import Register from "./pages/components/register";
 
-
 class App extends Component {
   render() {
     return (
-      
       <BrowserRouter>
         <div>
-          <p>SFSU-Fulda Software Engineering Project CSC648-848, Fall 2018. For Demonstration Only</p>
+          <p>
+            SFSU-Fulda Software Engineering Project CSC648-848, Fall 2018. For
+            Demonstration Only
+          </p>
           <h1>Team 11</h1>
           <NavBar />
           <SearchBar />
