@@ -30,22 +30,21 @@ app.use(passport.session());
 //TODO:Create, Read, Update, Index, Destroy, New
 
 app.get("/api/:item", (req, res) => {
-  //Eventually route to search through mongodb using db.fine(). 1/7 Restful route
-  //SHOW
+  //Shows the item
   let item = req.params.item;
   Posts.find({ _id: item }, function(err, result) {
     if (err) throw err;
     res.json(result);
   });
 });
-
+//Returns all items
 app.get("/allItems", (req, res) => {
   Posts.find(function(err, result) {
     if (err) throw err;
     res.json(result);
   });
 });
-
+//Search for items
 app.post("/allItems", (req, res) => {
   let category = req.body.value;
   let query = req.body.query;
@@ -70,6 +69,11 @@ app.post("/allItems", (req, res) => {
     );
   }
 });
+
+/**Add the item 
+ * 
+*/
+
 
 //Auth Routes
 //handle register(sign up)logic

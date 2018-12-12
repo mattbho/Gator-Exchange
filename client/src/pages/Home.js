@@ -26,7 +26,7 @@ export default class Home extends React.Component {
 
         <div className="Header">Recent Listings</div>
 
-        <div class="Recent">
+        <div className="Recent">
           {this.state.items !== null ? (
             <div>
               <Post list={items} />

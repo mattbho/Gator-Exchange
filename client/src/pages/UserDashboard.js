@@ -27,17 +27,17 @@ export default class UserDashboard extends React.Component {
   render() {
     return (
     
-      <div classname="dash-menu">
+      <div className="dash-menu">
         <div
-          class="btn-group-vertical"
+          className="btn-group-vertical"
           role="group"
           aria-label="Dashboard Buttons"
         >
-          <div class="dash-title">My Dashboard</div>
+          <div className="dash-title">My Dashboard</div>
 
           <button
             type="button"
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             onClick={this.previouslyBought}
           >
             Previously Bought
@@ -45,7 +45,7 @@ export default class UserDashboard extends React.Component {
 
           <button
             type="button"
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             onClick={this.mySelling}
           >
             My Selling
@@ -53,7 +53,7 @@ export default class UserDashboard extends React.Component {
 
           <button
             type="button"
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             onClick={this.userProfile}
           >
             User Profile

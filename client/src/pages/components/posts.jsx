@@ -10,7 +10,7 @@ class Post extends Component {
           {item.map((item, k) => {
             itemId = item._id;
             return (
-              <div className="Column">
+              <div className="Column" key = {k}>
                 <a href={"PostDetails?itemId=" + itemId} key={k}>
                 <img
                   className="postPhoto"
@@ -22,11 +22,10 @@ class Post extends Component {
                 <h2>$ {item.price}</h2>
                 <p>{item.title}</p>
                 <p>{item.description}</p>
-
-                <div className="buyButton">
-                <a href="#" class="btn btn-primary">Buy</a>
-                </div>
                 </a>
+                <div className="buyButton">
+                <button href="#" className="btn btn-primary">Buy</button>
+                </div>
               </div>
             );
           })}

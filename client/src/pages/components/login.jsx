@@ -34,7 +34,9 @@ class Login extends Component {
       .then(response => {
         if (response.status === 200) {
           //TODO update login to be global
-          alert(`You are now logged in, ${this.state.username}`);
+          this.props.updateUser({
+            loggedIn: true
+          })
           this.setState({
             redirectTo: "/"
           });

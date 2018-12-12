@@ -24,8 +24,44 @@ import SearchResults from "./pages/components/search-results";
 import SellForm from "./pages/components/sell-form";
 import Login from "./pages/components/login";
 import Register from "./pages/components/register";
+import axios from "axios";
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      loggedIn: false
+    }
+    this.updateUser = this.updateUser.bind(this);
+    this.checkUserLogin = this.checkUserLogin.bind(this);
+
+  }
+  componentDidMount(){
+    this.checkUserLogin();
+  }
+
+  updateUser(obj){
+    this.setState(obj);
+  }
+
+
+  checkUserLogin(){
+    axios.get("/auth/user").then(response => {
+      if(response.data.user){
+        console.log("User exists");
+        console.log(response.data);
+        this.setState({
+          loggedIn: true
+        })
+      } else {
+        console.log("No user found");
+        this.setState({
+          loggedIn: false
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -34,18 +70,18 @@ class App extends Component {
             SFSU-Fulda Software Engineering Project CSC648-848, Fall 2018. For
             Demonstration Only - Team 11
           </p>
-          <GENavBar />
+          <GENavBar updateUser={this.updateUser} loggedIn = {this.state.loggedIn}/>
 
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/About" component={About} />
             <Route path="/PostDetails" component={PostDetails} />
             <Route path="/searchresults" component={SearchResults} />
-            <Route path="/Sell" component={SellForm} />
-            <Route path="/Login" component={Login} />
+            <Route path="/Sell" component={SellForm} loggedIn = {this.state.loggedIn}/>
+            <Route path="/Login" render={(props) => <Login {...props} updateUser = {this.updateUser} />} />
             <Route path="/Register" component={Register} />
-            <Route path="/UserDashboard" component={UserDashboard} />
-            <Route path="/AdminDashboard" component={AdminDashboard} />
+            <Route path="/UserDashboard" component={UserDashboard} loggedIn = {this.state.loggedIn}/>
+            <Route path="/AdminDashboard" component={AdminDashboard} loggedIn = {this.state.loggedIn}/>
             <Route component={Error} />
           </Switch>
         </div>
