@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
 
 class Post extends Component {
 
@@ -6,12 +7,13 @@ class Post extends Component {
     const item = this.props.list;
     let itemId = "";
     return (
-        <div>
-          {item.map((item, k) => {
-            itemId = item._id;
-            return (
-              <div className="Column" key = {k}>
-                <a href={"PostDetails?itemId=" + itemId} key={k}>
+      <div>
+        {item.map((item, k) => {
+          itemId = item._id;
+          return (
+            <div className="Column" key={k}>
+              <a href={"PostDetails?itemId=" + itemId} key={k}>
+
                 <img
                   className="postPhoto"
                   src={item.image}
@@ -21,16 +23,17 @@ class Post extends Component {
                 />
                 <h2>$ {item.price}</h2>
                 <p>{item.title}</p>
-                <p>{item.description}</p>
-                </a>
-                <div className="buyButton">
-                <button href="#" className="btn btn-primary">Buy</button>
-                </div>
+              </a>
+              <div className="buyButton">
+                <Button  href = {"/Messages?itemId=" + itemId} color="primary" onClick={this.toggle}>
+                  Contact Seller
+                </Button>
+
               </div>
-            );
-          })}
-        </div>
-      
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }

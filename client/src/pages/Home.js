@@ -36,10 +36,6 @@ export default class Home extends React.Component {
             <div />
           )}
         </div>
-
-        <div className="footer">
-          Can't find what you are looking for? Try searching by category.
-        </div>
       </div>
     );
   }

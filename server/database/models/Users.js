@@ -8,7 +8,13 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, unique: false, required: true},
   email: String,
   admin: {type: Boolean, default: false},
-  sfsuId: Number
+  sfsuId: Number,
+  messages: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Message"
+    }
+  ]
 });
 
 UserSchema.methods = {

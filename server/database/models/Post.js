@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
   image: String,
   description: String,
   price: Number,
-  sellerId: Number,
+  username: String,
   title: String,
   category: String,
   status: {type: Boolean, default: false}

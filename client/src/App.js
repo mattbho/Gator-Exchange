@@ -24,6 +24,8 @@ import SearchResults from "./pages/components/search-results";
 import SellForm from "./pages/components/sell-form";
 import Login from "./pages/components/login";
 import Register from "./pages/components/register";
+import Messages from "./pages/components/message";
+
 import axios from "axios";
 
 class App extends Component {
@@ -77,11 +79,13 @@ class App extends Component {
             <Route path="/About" component={About} />
             <Route path="/PostDetails" component={PostDetails} />
             <Route path="/searchresults" component={SearchResults} />
-            <Route path="/Sell" component={SellForm} loggedIn = {this.state.loggedIn}/>
+
+            <Route path="/Sell" component={SellForm}/>
             <Route path="/Login" render={(props) => <Login {...props} updateUser = {this.updateUser} />} />
             <Route path="/Register" component={Register} />
-            <Route path="/UserDashboard" component={UserDashboard} loggedIn = {this.state.loggedIn}/>
-            <Route path="/AdminDashboard" component={AdminDashboard} loggedIn = {this.state.loggedIn}/>
+            <Route path="/UserDashboard" component={UserDashboard}/>
+            <Route path="/AdminDashboard" component={AdminDashboard} />
+            <Route path="/Messages" component = {Messages}/>
             <Route component={Error} />
           </Switch>
         </div>

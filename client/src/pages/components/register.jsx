@@ -74,7 +74,8 @@ class Register extends Component {
                     <div className="form-label-group">
                       <input
                         type="text"
-                        id="inputUserame"
+
+                        id="inputUsername"
                         className="form-control"
                         placeholder="Username"
                         name="username"
@@ -82,7 +83,8 @@ class Register extends Component {
                         required
                         autoFocus
                       />
-                      <label htmlFor="inputUserame">Username</label>
+                      <label htmlFor="inputUsername">Username</label>
+
                     </div>
                     <div className="form-label-group">
                       <input

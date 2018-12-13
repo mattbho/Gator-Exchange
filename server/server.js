@@ -7,7 +7,8 @@ const MongoStore = require('connect-mongo')(session)
 const Posts = require("./database/models/Post.js");
 const passport = require("./passport");
 const dbConnection = require("./database");
-const auth = require('./auth')
+const auth = require('./routes/auth');
+const messages = require("./routes/messages");
 //Port declaration
 const PORT = process.env.PORT || 5000;
 
@@ -70,18 +71,10 @@ app.post("/allItems", (req, res) => {
   }
 });
 
-/**Add the item 
- * 
-*/
-
-
-//Auth Routes
-//handle register(sign up)logic
-
 //Get user routes
-
 app.use('/auth', auth);
-
+//Messages
+app.use('/messages',messages);
 
 //Start server
 app.listen(PORT, process.env.IP, function() {

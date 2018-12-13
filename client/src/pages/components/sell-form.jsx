@@ -21,7 +21,7 @@ without the upload image function and backend connection.
           <div className="card fat">
             <div className="card-body">
               <form>
-                <div class=" form-group contianer-fluid">
+                <div class=" form-group container-fluid">
                   <title>Create Listing/Sell</title>
                   <div class="row justify-content-md-center">
                     <h4 className="card-title">Create Listing/Sell</h4>
