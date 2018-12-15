@@ -5,7 +5,11 @@ import axios from "axios";
 export default class UserDashboard extends React.Component {
   constructor() {
     super();
-    this.state = { info: "Welcome to your Dashboard!",
+
+    this.state = { 
+      info: "Welcome to your Dashboard!",
+      messages: null
+
     }
     this.getMessages = this.getMessages.bind(this);
   }
@@ -26,11 +30,17 @@ export default class UserDashboard extends React.Component {
   };
 
   getMessages(){
-
-    axios.get("/messages/allMessages").then(response =>{
-      if(response === 200){
-        console.log(response);
+    axios.get("/messages/allMessages/").then(response =>{
+      if(response){
+        let messageList = response;
+        this.setState({
+          messages: messageList
+        })
+      } else {
+        console.log("No data found");
       }
+    }).catch(error =>{
+      console.log(error);
     })
   }
 

@@ -10,26 +10,27 @@ router.post("/", (req,res) =>{
   let username = req.body.username;
   let subject = req.body.subject
   let text = req.body.text;
-  User.findOne({username: username}, (err, user) =>{
-    if(err){
-      console.log("User doesn't exist");
-    } else {
-      let newMessage = new Message ({
-        text: text,
-        subject: subject,
-        username: username
-      })
-      newMessage.save((err, savedMessage) =>{
-        if(err) throw err;
-        else {
-          res.json(savedMessage);
-        }
-      })
 
-      user.messages.push(newMessage);
-      user.save();
+  let newMessage = new Message ({
+    text: text,
+    subject: subject,
+    username: username
+  })
+  newMessage.save((err, savedMessage) =>{
+    if(err) throw err;
+    else {
+      res.json(savedMessage);
     }
   })
+
+  User.findOneAndUpdate(
+    {username: username},
+    {$push: {messages: newMessage}}
+    ,
+    (err, response)=>{
+      if(err) console.log(err);
+      console.log(response);
+    });
 })
 
 //Get Messages
@@ -47,7 +48,5 @@ router.get("/allMessages", (req, res) => {
 
 
 
-//Delete message
+module.exports = router;
 
-
-module.exports = router
