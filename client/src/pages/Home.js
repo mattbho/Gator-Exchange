@@ -15,7 +15,6 @@ export default class Home extends React.Component {
 
   render() {
     let items = this.state.items;
-
     return (
       <div className="Welcome">
         <div className="Banner">

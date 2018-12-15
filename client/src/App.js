@@ -79,13 +79,12 @@ class App extends Component {
             <Route path="/About" component={About} />
             <Route path="/PostDetails" component={PostDetails} />
             <Route path="/searchresults" component={SearchResults} />
-
             <Route path="/Sell" component={SellForm}/>
             <Route path="/Login" render={(props) => <Login {...props} updateUser = {this.updateUser} />} />
             <Route path="/Register" component={Register} />
             <Route path="/UserDashboard" component={UserDashboard}/>
             <Route path="/AdminDashboard" component={AdminDashboard} />
-            <Route path="/Messages" component = {Messages}/>
+            <Route path="/Messages" render = {props => <Messages {...props} loggedIn = {this.state.loggedIn}/>}/>
             <Route component={Error} />
           </Switch>
         </div>

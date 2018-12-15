@@ -6,7 +6,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../../database/models/Users");
 const passport = require("../../passport");
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 //Get user information.
 router.get("/user", (req, res) => {
   if (req.user) {

@@ -7,7 +7,7 @@ const Message = require("../../database/models/Messages");
 //Create new Message
 
 router.post("/", (req,res) =>{
-  let username = req.body.username;
+  let username = req.user.username;
   let subject = req.body.subject
   let text = req.body.text;
   User.findOne({username: username}, (err, user) =>{
@@ -33,9 +33,10 @@ router.post("/", (req,res) =>{
 })
 
 //Get Messages
-router.post("/allMessages", (req, res) => {
+router.get("/allMessages", (req, res) => {
   let username = req.user.username;
-  User.findOne({username: username}).populate("posts").exec(function(err, user){
+  console.log(username);
+  User.findOne({username: username}).populate("messages").exec(function(err, user){
     if(err){
       console.log(err);
     } else {
@@ -44,6 +45,9 @@ router.post("/allMessages", (req, res) => {
   })
 })
 
+
+
 //Delete message
+
 
 module.exports = router

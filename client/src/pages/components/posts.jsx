@@ -25,6 +25,7 @@ class Post extends Component {
                 <p>{item.title}</p>
               </a>
               <div className="buyButton">
+
                 <Button  href = {"/Messages?itemId=" + itemId} color="primary" onClick={this.toggle}>
                   Contact Seller
                 </Button>

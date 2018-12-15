@@ -39,19 +39,27 @@ class Messages extends Component {
 
   handleClick(event){
     event.preventDefault();
-    axios.post("/messages/", {
-      subject: this.state.subject,
-      username: this.state.username,
-      text: this.state.text,
-    }).then(response =>{
-      if(response.status === 200) {
-        this.setState({
-          redirectTo: "/"
-        })
-      }
-    }).catch(error =>{
-      console.log("Message error", error);
-    })
+    if(this.props.loggedIn){
+      axios.post("/messages/", {
+        subject: this.state.subject,
+        username: this.state.username,
+        text: this.state.text,
+      }).then(response =>{
+        if(response.status === 200) {
+          this.setState({
+            redirectTo: "/"
+          })
+        }
+      }).catch(error =>{
+        console.log("Message error", error);
+      })
+    }
+    else{
+      alert("Please Log In!");
+      this.setState({
+        redirectTo: "/Login"
+      })
+    }
   }
 
   render() {
@@ -75,7 +83,8 @@ class Messages extends Component {
                     </div>
                     <div className="form-group row justify-content-md-center">
                       <textarea
-                        className="form-control w-100 h-500"
+                        className="form-control"
+                        style = {{height: "200px"}}
                         name = "text"
                         placeholder="Message to Seller"
                         onChange = {this.handleChange}

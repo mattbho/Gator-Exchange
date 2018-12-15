@@ -1,11 +1,13 @@
 import React from "react";
-
+import axios from "axios";
 //User Dashboard Page
 
 export default class UserDashboard extends React.Component {
   constructor() {
     super();
-    this.state = { info: "Press menu selection to change" };
+    this.state = { info: "Welcome to your Dashboard!",
+    }
+    this.getMessages = this.getMessages.bind(this);
   }
 
   //State for previously bought items
@@ -15,14 +17,22 @@ export default class UserDashboard extends React.Component {
 
   //State for current active selling post from the user
   mySelling = () => {
-    this.setState({ info: "my-selling" });
+    this.setState({ info: "My Postings" });
   };
 
   //State for user profile account information, username, contact info, etc.
   userProfile = () => {
-    this.setState({ info: "user-profile" });
+    this.setState({ info: "Messages" });
   };
 
+  getMessages(){
+
+    axios.get("/messages/allMessages").then(response =>{
+      if(response === 200){
+        console.log(response);
+      }
+    })
+  }
 
   render() {
     return (
@@ -38,7 +48,7 @@ export default class UserDashboard extends React.Component {
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={this.previouslyBought}
+            onClick={this.getMessages}
           >
             Previously Bought
           </button>
@@ -48,7 +58,7 @@ export default class UserDashboard extends React.Component {
             className="btn btn-secondary"
             onClick={this.mySelling}
           >
-            My Selling
+            My Postings
           </button>
 
           <button
@@ -56,13 +66,13 @@ export default class UserDashboard extends React.Component {
             className="btn btn-secondary"
             onClick={this.userProfile}
           >
-            User Profile
+            Messages
           </button>
 
           
         </div>
 
-        <div className="dashboardDisplay">{this.state.info}</div>
+        <h1 className="dashboardDisplay">{this.state.info}</h1>
       </div>
     );
   }
