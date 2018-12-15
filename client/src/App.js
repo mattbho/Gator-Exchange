@@ -73,7 +73,6 @@ class App extends Component {
             Demonstration Only - Team 11
           </p>
           <GENavBar updateUser={this.updateUser} loggedIn = {this.state.loggedIn}/>
-
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/About" component={About} />
@@ -82,7 +81,7 @@ class App extends Component {
             <Route path="/Sell" component={SellForm}/>
             <Route path="/Login" render={(props) => <Login {...props} updateUser = {this.updateUser} />} />
             <Route path="/Register" component={Register} />
-            <Route path="/UserDashboard" component={UserDashboard}/>
+            <Route path="/UserDashboard"  component = {UserDashboard}/>}/>
             <Route path="/AdminDashboard" component={AdminDashboard} />
             <Route path="/Messages" render = {props => <Messages {...props} loggedIn = {this.state.loggedIn}/>}/>
             <Route component={Error} />

@@ -4,7 +4,8 @@ var messageSchema = mongoose.Schema({
   text: String,
   subject: String,
   createdAt: {type: Date, default: Date.now},
-  username: String
+  username: String,
+  sentFrom: String
 })
 
 

@@ -9,6 +9,7 @@ const passport = require("./passport");
 const dbConnection = require("./database");
 const auth = require('./routes/auth');
 const messages = require("./routes/messages");
+const sanitize = require('mongo-sanitize');
 //Port declaration
 const PORT = process.env.PORT || 5000;
 
@@ -32,7 +33,7 @@ app.use(passport.session());
 
 app.get("/api/:item", (req, res) => {
   //Shows the item
-  let item = req.params.item;
+  let item = sanitize(req.params.item);
   Posts.find({ _id: item }, function(err, result) {
     if (err) throw err;
     res.json(result);
@@ -47,8 +48,8 @@ app.get("/allItems", (req, res) => {
 });
 //Search for items
 app.post("/allItems", (req, res) => {
-  let category = req.body.value;
-  let query = req.body.query;
+  let category = sanitize(req.body.value);
+  let query = sanitize(req.body.query);
   if (category !== "All") {
     Posts.find(
       {

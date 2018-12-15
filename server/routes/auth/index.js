@@ -6,6 +6,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../../database/models/Users");
 const passport = require("../../passport");
+const sanitize = require("mongo-sanitize");
 const bodyParser = require('body-parser');
 //Get user information.
 router.get("/user", (req, res) => {
@@ -44,7 +45,7 @@ router.post('/user/logout', (req, res) => {
 //Handling sign up
 router.post('/user/signup', (req, res) =>{
   console.log(req.body);
-  const {username, email, sfsuId} = req.body
+  const {username, email, sfsuId} = sanitize(req.body)
   User.findOne({username: username}, (err, user) =>{
     if(user){
       return res.json({error: `Already user with username ${username}`})
