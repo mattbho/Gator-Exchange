@@ -7,7 +7,7 @@ const Message = require("../../database/models/Messages");
 //Create new Message
 
 router.post("/", (req,res) =>{
-  let username = req.user.username;
+  let username = req.body.username;
   let subject = req.body.subject
   let text = req.body.text;
   User.findOne({username: username}, (err, user) =>{
