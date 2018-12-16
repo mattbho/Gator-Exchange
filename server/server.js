@@ -52,7 +52,6 @@ const parser = multer({storage:storage});
 //TODO:Create, Read, Update, Index, Destroy, New
 
 app.post("/api/post", parser.single("image"), (req,res) => {
-  console.log(req.file)
   const postData = {};
   postData.image = req.file.url;
   postData.category = req.body.category;
@@ -63,7 +62,9 @@ app.post("/api/post", parser.single("image"), (req,res) => {
   console.log(postData);
   Posts.create(postData)
     .then(newImage => res.json(newImage))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)); 
+    res.redirect("/");
+
 })
 
 app.get("/api/user", (req,res) => {
