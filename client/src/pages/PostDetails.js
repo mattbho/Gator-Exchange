@@ -3,7 +3,7 @@ import PostDetail from "./components/postDetail";
 
 export default class PostDetails extends React.Component {
   state = {
-    items: null
+    items: null,
   };
   
   

@@ -6,12 +6,12 @@ export default class SellForm extends Component {
     super(props);
     this.state = {};
   }
-/*
-Styling By: Juan Valdez
-The whole point of the sell-form styling is to create an appealing sell form 
-where it is presentable and easy to use for a user. A card styl fill out form
-without the upload image function and backend connection.
-*/
+  /*
+  Styling By: Juan Valdez
+  The whole point of the sell-form styling is to create an appealing sell form 
+  where it is presentable and easy to use for a user. A card styl fill out form
+  without the upload image function and backend connection.
+  */
 
   render() {
     return (
@@ -20,7 +20,7 @@ without the upload image function and backend connection.
         <div className="card-wrapper w-50">
           <div className="card fat">
             <div className="card-body">
-              <form>
+              <form action='/api/post' method='post' encType="multipart/form-data">
                 <div class=" form-group container-fluid">
                   <title>Create Listing/Sell</title>
                   <div class="row justify-content-md-center">
@@ -28,7 +28,7 @@ without the upload image function and backend connection.
                   </div>
                   <div class="form-group row justify-content-md-center">
                     <div class="col-md-1.5">
-                      <select class="custom-select">
+                      <select name="category" class="custom-select">
                         <option selected>Select Category</option>
                         <option value="Books">Books</option>
                         <option value="Car">Car</option>
@@ -38,19 +38,36 @@ without the upload image function and backend connection.
                       </select>
                     </div>
                   </div>
-                  <div class="form-row justify-content-md-center">
-                    <label for="Item-Description">Item Description: </label>
-                  </div>
-                  <div class="form-group row justify-content-md-center">
+                
+                  <div class="form-group row">
+                    <label for="Item-Name" class="col-sm-2">Item Name: </label>
 
-                    <textarea class="form-control w-50" id="description" placeholder="Item Description"></textarea>
-                  </div>
-                  <div class="form-row justify-content-md-center">
-                    <label for="Contact">Contact Information: </label>
+                    <div class="col-sm-10 d-flex justify-content-center">
+                      <input name="title" type="text" class="form control w-75" placeholder="Item Name"></input>
+                    </div>
                   </div>
 
-                  <div class="form-group row justify-content-md-center">
-                    <textarea class="form-control w-50" id="contact" placeholder="Contact Information"></textarea>
+                  <div class="form-group row ">
+                    <label for="Item-Description" class="col-sm-2 col-form-label">Item Description: </label>
+                    <div class="col-sm-10 col-sm-2 col-form-label d-flex justify-content-center">
+                      <input name="description" type="text" class="form-control w-75" id="description" placeholder="Item Description"></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="Item-Price" class="col-sm-2 col-form-label col-sm-2">Price:</label>
+                    <div class="col-sm-10 col-sm-2 col-form-label d-flex justify-content-center">
+                      <input name="price" class="form-control w-75" placeholder="Price"></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label htmlFor = "image" className="col-sm-2 col-form-label col-sm-2">Upload Picture:</label>
+                    <input type='file' name='image'></input>
+                  </div>
+                  
+                  <div class = "form-group row justify-content-center">
+                  <input type="submit" value="Post"></input>
                   </div>
                 </div>
               </form>
