@@ -1,12 +1,5 @@
 import React from "react";
 import axios from "axios";
-<<<<<<< HEAD
-=======
-import {Redirect} from "react-router-dom";
->>>>>>> c0223a3fba2283a2a674d7fe8f48318691c2550a
-
-//User Dashboard Page
-
 export default class UserDashboard extends React.Component {
   constructor() {
     super();

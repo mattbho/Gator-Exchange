@@ -20,7 +20,7 @@ export default class SellForm extends Component {
         <div className="card-wrapper w-50">
           <div className="card fat">
             <div className="card-body">
-              <form action='/api/post' method='post' encType="multipart/form-data">
+              <form action='/api/post' method='POST' encType="multipart/form-data">
                 <div class=" form-group container-fluid">
                   <title>Create Listing/Sell</title>
                   <div class="row justify-content-md-center">
