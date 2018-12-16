@@ -93,3 +93,9 @@ class App extends Component {
 }
 
 export default App;
+
+//Sell form needs to check for user login
+//Dashboards needs to load messages
+//Dashboards needs to load posts
+//Dashboard needs to load admin post approvals
+//Home page should only display approved postings
