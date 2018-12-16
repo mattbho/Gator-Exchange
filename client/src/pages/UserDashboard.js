@@ -1,17 +1,20 @@
 import React from "react";
 import axios from "axios";
 import {Redirect} from "react-router-dom";
+
 //User Dashboard Page
 
 export default class UserDashboard extends React.Component {
   constructor() {
     super();
+
     this.state = {
       info: "Welcome to your Dashboard!",
       messages: [],
       redirectTo:""
     };
     this.getMessages = this.getMessages.bind(this);
+
   }
 
   //State for previously bought items
@@ -64,6 +67,7 @@ export default class UserDashboard extends React.Component {
               Messages
             </button>
 
+
             <button
               type="button"
               className="btn btn-secondary"
@@ -92,6 +96,7 @@ export default class UserDashboard extends React.Component {
         </div>
       );
     }
+
   }
 
 // div, className = "dashboardDisplay" is a state that can be changed

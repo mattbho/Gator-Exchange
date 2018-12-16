@@ -5,10 +5,14 @@ const bodyParser = require("body-parser");
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session)
 const Posts = require("./database/models/Post.js");
+const Users = require("./database/models/Users.js");
 const passport = require("./passport");
 const dbConnection = require("./database");
 const auth = require('./routes/auth');
 const messages = require("./routes/messages");
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
 const sanitize = require('mongo-sanitize');
 //Port declaration
 const PORT = process.env.PORT || 5000;
@@ -27,9 +31,47 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//image upload middleware
+cloudinary.config( {
+  cloud_name: "dozaxenxf",
+  api_key: "295771854389667",
+  api_secret: "c1FTgBkSY3BY9Ebzf_BLo-SvsBE"
+});
+
+const storage = cloudinaryStorage( {
+  cloudinary: cloudinary,
+  folder: "demo",
+  allowedFormats: ["jpg", "png"],
+  transformation: [{width:500, height:500, crop:"limit"}]
+});
+
+const parser = multer({storage:storage});
+
 
 //TODO:Implement REST API routes
 //TODO:Create, Read, Update, Index, Destroy, New
+
+app.post("/api/post", parser.single("image"), (req,res) => {
+  console.log(req.file)
+  const postData = {};
+  postData.image = req.file.url;
+  postData.category = req.body.category;
+  postData.description = req.body.description;
+  postData.title = req.body.title;
+  postData.price = req.body.price;
+  postData.username = req.user.username;
+
+  Posts.create(postData)
+    .then(newImage => res.json(newImage))
+    .catch(err => console.log(err))
+})
+
+app.get("/api/user", (req,res) => {
+  Users.find(function(err, result) {
+    if(err) throw err;
+    res.json(result);
+  })
+});
 
 app.get("/api/:item", (req, res) => {
   //Shows the item
