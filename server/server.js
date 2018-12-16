@@ -60,7 +60,7 @@ app.post("/api/post", parser.single("image"), (req,res) => {
   postData.title = req.body.title;
   postData.price = req.body.price;
   postData.username = req.user.username;
-
+  console.log(postData);
   Posts.create(postData)
     .then(newImage => res.json(newImage))
     .catch(err => console.log(err))

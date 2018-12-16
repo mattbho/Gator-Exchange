@@ -1,9 +1,5 @@
 import React from "react";
 import axios from "axios";
-import {Redirect} from "react-router-dom";
-
-//User Dashboard Page
-
 export default class UserDashboard extends React.Component {
   constructor() {
     super();
@@ -17,6 +13,7 @@ export default class UserDashboard extends React.Component {
 
   }
 
+  
   //State for previously bought items
   previouslyBought = () => {
     this.setState({ info: "previously-bought" });

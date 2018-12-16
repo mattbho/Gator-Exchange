@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import SearchBar from "./searchbar";
 
+
 //Contains Navbar and Searchbar components and Gator Exchange logo
 //CSS done in navbar.css
 
@@ -30,7 +31,7 @@ export default class GENavbar extends React.Component {
   }
 
   logOut(event) {
-    event.preventDefault();
+    //event.preventDefault();
     axios
       .post("/auth/user/logout")
       .then(response => {
