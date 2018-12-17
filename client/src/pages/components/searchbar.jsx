@@ -45,8 +45,10 @@ class SearchBar extends Component {
               <select value={this.state.value} onChange={this.handleChange}>
                 <option defaultValue>All</option>
                 <option value="Books">Books</option>
+                <option value="Car">Car</option>
                 <option value="Clothes">Clothes</option>
                 <option value="Miscellaneous">Miscellaneous</option>
+                <option value="Supplies">Supplies</option>
               </select>
             </div>
             <input

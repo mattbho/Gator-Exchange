@@ -12,18 +12,18 @@ class Post extends Component {
           itemId = item._id;
           return (
             <div className="Column" key={k}>
-              <a href={"PostDetails?itemId=" + itemId} key={k}>
+              <a href={"PostDetails?itemId=" + itemId} target="_blank" key={k}>
 
-                <img
+                <img 
                   className="postPhoto"
                   src={item.image}
                   width="200"
                   height="200"
                   alt="post"
                 />
+              </a>
                 <h2>$ {item.price}</h2>
                 <p>{item.title}</p>
-              </a>
               <div className="buyButton">
 
                 <Button  href = {"/Messages?itemId=" + itemId} color="primary" onClick={this.toggle}>
