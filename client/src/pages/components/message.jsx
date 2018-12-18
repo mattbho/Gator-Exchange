@@ -79,7 +79,7 @@ class Messages extends Component {
                     </div>
                     <div className="form-group row justify-content-md-center">
                       <label htmlFor="Item-Description">Subject </label>
-                      <Input type="text" defaultValue = {this.state.subject} onChange = {this.handleChange}/>
+                      <Input type="text" defaultValue = {this.state.subject} onChange = {this.handleChange} required/>
                     </div>
                     <div className="form-group row justify-content-md-center">
                       <textarea
@@ -88,6 +88,7 @@ class Messages extends Component {
                         name = "text"
                         placeholder="Message to Seller"
                         onChange = {this.handleChange}
+                        required
                       />
                     </div>
                   </div>
