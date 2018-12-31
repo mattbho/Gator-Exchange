@@ -33,9 +33,9 @@ app.use(passport.session());
 
 //image upload middleware
 cloudinary.config( {
-  cloud_name: "dozaxenxf",
-  api_key: "295771854389667",
-  api_secret: "c1FTgBkSY3BY9Ebzf_BLo-SvsBE"
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const storage = cloudinaryStorage( {

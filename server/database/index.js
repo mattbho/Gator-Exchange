@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const MONGO_URI = "mongodb://csc648team11:648team11@ds052837.mlab.com:52837/gatorexchange";
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI, {useNewUrlParser: true}).then(
   () =>{
