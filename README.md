@@ -1,3 +1,5 @@
+![alt text](https://github.com/mattbho/Gator-Exchange/blob/master/Milestones/M5/frontpage.png "Gator-Exchange Front page")
+
 # Gator-Exchange
 A MERN buy and sell website catering toward students.
 
